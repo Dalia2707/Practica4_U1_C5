@@ -86,7 +86,7 @@ namespace Practica4_U1_C5.ViewModel
         {
 
         }
-        public void Criticar()
+        public void critica()
         {
             string nombre = Nombre;
             string critica = nombre + " es ";
@@ -146,7 +146,10 @@ namespace Practica4_U1_C5.ViewModel
                 }
             }
             string resultado = critica.TrimEnd(' ', ',');
-
+            puntuacion(resultado);
+        }
+        public void puntuacion(string resultado)
+        {
             if (!string.IsNullOrWhiteSpace(resultado))
             {
                 int ucoma = resultado.LastIndexOf(',');
@@ -160,7 +163,7 @@ namespace Practica4_U1_C5.ViewModel
         #endregion
         #region COMANDO
         public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-        public ICommand Criticarcommand => new Command(Criticar);
+        public ICommand Criticarcommand => new Command(critica);
         #endregion
     }
 }
